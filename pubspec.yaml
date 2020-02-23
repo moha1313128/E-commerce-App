@@ -53,6 +53,15 @@ flutter:
    - images/7.jpg
    - images/8.jpg
    - images/9.jpg
+   - images/id.jpg
+
+   - images/clothes/accessories.png
+   - images/clothes/dress.png
+   - images/clothes/formal.png
+   - images/clothes/informal.png
+   - images/clothes/jeans.png
+   - images/clothes/shoe.png
+   - images/clothes/tshirt.png
 
   #  - images/a_dot_ham.jpeg
 

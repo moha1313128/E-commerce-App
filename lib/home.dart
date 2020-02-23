@@ -1,5 +1,6 @@
 
 // import 'dart:html';
+import 'package:ecommerce/components/card.dart';
 import 'package:flutter/material.dart';
 import 'package:carousel_pro/carousel_pro.dart';
 
@@ -8,7 +9,12 @@ class HomePage extends StatefulWidget {
   @override
   _HomePageState createState() => _HomePageState();
 }
+class Consts {
+  Consts._();
 
+  static const double padding = 16.0;
+  static const double avatarRadius = 66.0;
+}
 class _HomePageState extends State<HomePage> {
   @override
   Widget build(BuildContext context) {
@@ -55,10 +61,11 @@ class _HomePageState extends State<HomePage> {
           // header
           new UserAccountsDrawerHeader(accountName: Text('WebDev'), accountEmail: Text('moha1313128@gmail.com'),
           currentAccountPicture: GestureDetector(
-            child: new CircleAvatar(
-              backgroundColor: Colors.grey,
-              child: Icon(Icons.person, color: Colors.white),
-            ),
+              child: new CircleAvatar(
+                  backgroundColor: Colors.grey,
+                  backgroundImage: AssetImage('images/id.jpg'),
+                // child: Icon(Icons.person, color: Colors.white),
+              ),
           ),
           decoration: new BoxDecoration(
             color: Colors.red,
@@ -127,7 +134,12 @@ class _HomePageState extends State<HomePage> {
       ),
       body: new ListView(
         children: <Widget>[
-          image_carousel
+          image_carousel,
+          new Padding(padding: const EdgeInsets.all(8.0),
+          // child: new Text('Categories'),
+          ),
+          //Cards
+          HorizonatlList(),
         ],
       )
     );
