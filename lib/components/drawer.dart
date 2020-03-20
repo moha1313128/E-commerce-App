@@ -50,8 +50,8 @@ class _DrawerState extends State<Drawer> {
           InkWell(
             onTap: (){},
             child: ListTile(
-              title: Text('Categories'),
-              leading: Icon(Icons.dashboard, color: Colors.red),
+              title: Text('Shopping cart'),
+              leading: Icon(Icons.shopping_cart, color: Colors.red),
             ),
           ),
           InkWell(
@@ -66,7 +66,7 @@ class _DrawerState extends State<Drawer> {
             onTap: (){},
             child: ListTile(
               title: Text('Settings'),
-              leading: Icon(Icons.settings, color: Colors.red),
+              leading: Icon(Icons.settings),
             ),
           ),
           InkWell(

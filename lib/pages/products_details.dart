@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:ecommerce/home.dart';
 
 class ProductDetails extends StatefulWidget {
   final prod_detail_name;
@@ -26,7 +27,10 @@ class _ProductDetailsState extends State<ProductDetails> {
         // centerTitle: true,
         elevation: 0.0,
         // title: Text("Shop List"),
-        title: new Text(widget.prod_detail_name),
+        title: InkWell(
+          onTap: (){ Navigator.push(context, MaterialPageRoute(builder: (context) => new HomePage()));},
+          child: new Text(widget.prod_detail_name)
+        ),
         actions: <Widget>[
           new IconButton(icon: Icon(Icons.search, color: Colors.white), onPressed: (){}),
           new IconButton(icon: Icon(Icons.shopping_cart, color: Colors.white), onPressed: (){}),
@@ -214,8 +218,117 @@ class _ProductDetailsState extends State<ProductDetails> {
               ),
             ],
           ),
+          // Divider
+          Divider(),
+          Padding(
+            padding: const EdgeInsets.all(8.0),
+            child: new Text('Similar Products'),
+          ),
+          // Similar Products Section
+          Container(
+            height: 360.0,
+            child: Similar_products(),
+          ),
         ],
       ),
+    );
+  }
+}
+
+
+class Similar_products extends StatefulWidget {
+  @override
+  _Similar_productsState createState() => _Similar_productsState();
+}
+
+class _Similar_productsState extends State<Similar_products> {
+  var products_list = [
+    {
+      "name": "Accessoires",
+      "picture": "images/clothes/accessories.png",
+      "old_price":120,
+      "price":75,
+    },
+    {
+      "name": "Jeans",
+      "picture": "images/clothes/jeans.png",
+      "old_price":200,
+      "price":150,
+    },
+    {
+      "name": "Formal",
+      "picture": "images/clothes/formal.png",
+      "old_price":200,
+      "price":150,
+    },
+    {
+      "name": "Informal",
+      "picture": "images/clothes/informal.png",
+      "old_price":200,
+      "price":150,
+    }
+  ];
+
+  @override
+  Widget build(BuildContext context) {
+    return GridView.builder(
+      itemCount: products_list.length,
+      gridDelegate: new SliverGridDelegateWithFixedCrossAxisCount(crossAxisCount: 2),
+      itemBuilder: (BuildContext context, int index){
+        return Similar_single_prod(
+          prod_name: products_list[index]['name'],
+          prod_picture: products_list[index]['picture'],
+          prod_old_price: products_list[index]['old_price'],
+          prod_price: products_list[index]['price'],
+        ); 
+      });
+  }
+}
+class Similar_single_prod extends StatelessWidget {
+  final prod_name;
+  final prod_picture;
+  final prod_old_price;
+  final prod_price;
+
+  Similar_single_prod({
+    this.prod_name,
+    this.prod_picture,
+    this.prod_old_price,
+    this.prod_price,
+  });
+  @override
+  Widget build(BuildContext context) {
+    return Card(
+      child: Hero(
+        tag: prod_name, 
+        child: Material(
+        child: InkWell(
+          onTap: ()=> Navigator.of(context).push(
+            new MaterialPageRoute(
+              builder: (context)=> new ProductDetails(
+            prod_detail_name: prod_name, 
+            prod_detail_old_price: prod_old_price, 
+            prod_detail_picture: prod_picture, 
+            prod_detail_price: prod_price,
+          ),
+          )),
+        child: GridTile(
+          footer: Container(
+            color: Colors.white60,
+            child: new Row(
+              children: <Widget>[
+                Expanded(
+                  child: Text(prod_name, style: TextStyle(fontSize: 16.0, fontWeight: FontWeight.bold),),
+                ),
+                new Text("\$$prod_price", style: TextStyle(color: Colors.red, fontWeight: FontWeight.bold),),
+                new Text(" \$$prod_old_price", style: TextStyle(color: Colors.grey, fontWeight: FontWeight.bold, decoration: TextDecoration.lineThrough),),
+              ],
+            ),
+          ),
+          child: Image.asset(prod_picture, fit: BoxFit.none),
+        ),
+        ),
+      )),
     );
   }
 }

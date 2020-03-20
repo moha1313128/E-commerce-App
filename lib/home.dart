@@ -1,6 +1,7 @@
 // import 'dart:html';
 import 'package:ecommerce/components/card.dart';
 import 'package:ecommerce/components/products.dart';
+import 'package:ecommerce/pages/cart.dart';
 import 'package:flutter/material.dart';
 import 'package:carousel_pro/carousel_pro.dart';
 
@@ -37,6 +38,7 @@ class _HomePageState extends State<HomePage> {
         dotSize: 4.0,
         indicatorBgPadding: 2.0,
         dotColor: Colors.red,
+        dotBgColor: Colors.transparent,
       ),
     );
 
@@ -48,7 +50,7 @@ class _HomePageState extends State<HomePage> {
         title: Text('Shop List'),
         actions: <Widget>[
           new IconButton(icon: Icon(Icons.search, color: Colors.white), onPressed: (){}),
-          new IconButton(icon: Icon(Icons.shopping_cart, color: Colors.white), onPressed: (){}),
+          new IconButton(icon: Icon(Icons.shopping_cart, color: Colors.white), onPressed: (){Navigator.push(context, MaterialPageRoute(builder: (context) => new Cart()));}),
         ],
       ),
       drawer: new Drawer(
@@ -90,10 +92,10 @@ class _HomePageState extends State<HomePage> {
             ),
           ),
           InkWell(
-            onTap: (){},
+            onTap: (){ Navigator.push(context, MaterialPageRoute(builder: (context) => new Cart()));},
             child: ListTile(
-              title: Text('Categories'),
-              leading: Icon(Icons.dashboard, color: Colors.red),
+              title: Text('Shopping cart'),
+              leading: Icon(Icons.shopping_cart, color: Colors.red),
             ),
           ),
           InkWell(
