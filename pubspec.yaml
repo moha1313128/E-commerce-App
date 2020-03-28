@@ -14,12 +14,23 @@ description: A new Flutter project.
 version: 1.0.0+1
 
 environment:
-  sdk: ">=2.1.0 <3.0.0"
+  sdk: ">=2.2.0 <3.0.0"
 
 dependencies:
   flutter:
     sdk: flutter
-  carousel_pro: ^1.0.0  
+  carousel_pro: ^1.0.0
+  firebase_auth: 0.15.5+3
+  cloud_firestore: ^0.12.5
+  shared_preferences: ^0.4.3
+  fluttertoast: ^3.1.3
+  google_sign_in: ^4.2.0
+  font_awesome_flutter: ^8.8.0
+  flutter_signin_button: ^1.0.0
+  circular_profile_avatar: ^1.0.6
+  firebase_database:
+  floating_search_bar: ^0.3.0
+  curved_drawer: ^0.1.2
 
   # The following adds the Cupertino Icons font to your application.
   # Use with the CupertinoIcons class for iOS style icons.
@@ -29,13 +40,11 @@ dev_dependencies:
   flutter_test:
     sdk: flutter
 
-
 # For information on the generic Dart part of this file, see the
 # following page: https://dart.dev/tools/pub/pubspec
 
 # The following section is specific to Flutter.
 flutter:
-
   # The following line ensures that the Material Icons font is
   # included with your application, so that you can use the icons in
   # the material Icons class.
@@ -43,25 +52,21 @@ flutter:
 
   # To add assets to your application, add an assets section, like this:
   assets:
-  
-   - images/id.jpg
-
-   - images/clothes/accessories.png
-   - images/clothes/dress.png
-   - images/clothes/formal.png
-   - images/clothes/informal.png
-   - images/clothes/jeans.png
-   - images/clothes/shoe.png
-   - images/clothes/tshirt.png
+    - images/id.jpg
+    - images/fashion.jpg
+    - images/clothes/accessories.png
+    - images/clothes/dress.png
+    - images/clothes/formal.png
+    - images/clothes/informal.png
+    - images/clothes/jeans.png
+    - images/clothes/shoe.png
+    - images/clothes/tshirt.png
 
   #  - images/a_dot_ham.jpeg
-
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/assets-and-images/#resolution-aware.
-
   # For details regarding adding assets from package dependencies, see
   # https://flutter.dev/assets-and-images/#from-packages
-
   # To add custom fonts to your application, add a fonts section here,
   # in this "flutter" section. Each entry in this list should have a
   # "family" key with the font family name, and a "fonts" key with a
