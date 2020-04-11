@@ -1,8 +1,9 @@
 import 'dart:io';
 import 'package:ecommerce/home.dart';
+import 'package:ecommerce/pages/login.dart';
+import 'package:ecommerce/screens/admin.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
-import 'auth/login_screen.dart';
 
 void main() {
   if (!kIsWeb) _setTargetPlatformForDesktop();
@@ -25,31 +26,39 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-        debugShowCheckedModeBanner: false,
-        theme: ThemeData(
-          primarySwatch: Colors.blue,
-        ),
-        // home: LoginPage()
-        home: HomePage()
-        // home: FloatingSearchBar.builder(
-        //   pinned: true,
-        //   itemCount: 100,
-        //   padding: EdgeInsets.only(top: 10.0),
-        //   itemBuilder: (BuildContext context, int index) {
-        //     return ListTile(
-        //       leading: Text(index.toString()),
-        //     );
-        //   },
-        //   onChanged: (String value) {},
-        //   onTap: () {},
-        //   decoration: InputDecoration.collapsed(
-        //     hintText: "Search...",
-        //   ),
-        //   leading: CircleAvatar(
-        //     child: Text("RD"),
-        //   ),
-        //   endDrawer: Drawer(),
-        // ),
-        );
+      debugShowCheckedModeBanner: false,
+      theme: ThemeData(
+        primarySwatch: Colors.blue,
+      ),
+      // home: Login(),
+      // initialRoute: '/',
+      routes: {
+        '/': (context) => Login(),
+        '/home': (context) => HomePage(),
+        '/admin': (context) => Admin(),
+      },
+      // home: LoginPage()
+      // home: HomePage()
+      // home: Admin()
+      // home: FloatingSearchBar.builder(
+      //   pinned: true,
+      //   itemCount: 100,
+      //   padding: EdgeInsets.only(top: 10.0),
+      //   itemBuilder: (BuildContext context, int index) {
+      //     return ListTile(
+      //       leading: Text(index.toString()),
+      //     );
+      //   },
+      //   onChanged: (String value) {},
+      //   onTap: () {},
+      //   decoration: InputDecoration.collapsed(
+      //     hintText: "Search...",
+      //   ),
+      //   leading: CircleAvatar(
+      //     child: Text("RD"),
+      //   ),
+      //   endDrawer: Drawer(),
+      // ),
+    );
   }
 }

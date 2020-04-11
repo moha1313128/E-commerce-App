@@ -8,16 +8,16 @@ import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import '../db/users.dart';
 
-class Register extends StatefulWidget {
+class SignUp extends StatefulWidget {
   static String tag = 'login-page';
 
   @override
   State<StatefulWidget> createState() {
-    return new _RegisterState();
+    return new _SignUpState();
   }
 }
 
-class _RegisterState extends State<Register> {
+class _SignUpState extends State<SignUp> {
   final GlobalKey<FormState> _registerFormKey = GlobalKey<FormState>();
   GlobalKey<FormState> _key = new GlobalKey();
   bool _validate = false;
@@ -275,8 +275,9 @@ class _RegisterState extends State<Register> {
           'displayName': user.displayName,
           'email': user.email
         });
-        Navigator.push(
-            context, MaterialPageRoute(builder: (context) => HomePage()));
+        // Navigator.push(
+        //     context, MaterialPageRoute(builder: (context) => HomePage()));
+        Navigator.pushNamed(context, '/home');
       }
     }
   }
